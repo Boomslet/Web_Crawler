@@ -24,7 +24,7 @@ def create_dirs(url_name):
 
 def write_file(path, data):
     with open(path, 'a') as f:
-        f.write(soup.text)
+        f.write(data)
 
 
 def crawler(base_url, element="body", keyword=None):
@@ -39,8 +39,7 @@ def crawler(base_url, element="body", keyword=None):
         page = requests.get(url).text
         soup = BeautifulSoup(page, 'lxml')
         data = soup.find_all(element)
-        print(soup.text.strip())
-        write_file("dump.txt", data.text)
+        write_file("dump.txt", soup.text)
 
         for link in BeautifulSoup(page, 'lxml', parse_only=SoupStrainer('a', href=True)):
             for link in soup.find_all('a'):
