@@ -6,8 +6,9 @@ Date: 24/07/2017
 Version: -
 """
 
+import lxml
 import os
-import urllib.request
+import requests
 from bs4 import BeautifulSoup, SoupStrainer
 
 url_list = []
@@ -29,11 +30,14 @@ def crawler(base_url, element="tr", keyword=None):
     url_list.append(base_url)
 
     for url in url_list:
-        page = urllib.request.urlopen(url)
-        soup = BeautifulSoup(page, "html.parser")
+        page = requests.get(url).text
+        soup = BeautifulSoup(page, 'lxml')
         data = soup.find_all(element)
 
-        for link in BeautifulSoup(page, parseOnlyThese=SoupStrainer('a')):
-            if link.has_attr('href'):
-                url_list.append(link['href'])
-
+        for link in BeautifulSoup(page, 'lxml', parse_only=SoupStrainer('a', href=True)):
+            for link in soup.find_all('a'):
+                try:
+                    uDom = link['href']
+                    url_list.append(url + uDom)
+                except:
+                    pass
