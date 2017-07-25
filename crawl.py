@@ -12,7 +12,7 @@ import requests
 from bs4 import BeautifulSoup, SoupStrainer
 
 url_list = []
-
+crawled_list = []
 
 def create_dirs(url_name):
     if not os.path.exists(url_name):
@@ -30,6 +30,12 @@ def crawler(base_url, element="tr", keyword=None):
     url_list.append(base_url)
 
     for url in url_list:
+        
+        crawled_list.append(url)
+        url_list.remove(url)
+
+        create_dirs(url)
+        
         page = requests.get(url).text
         soup = BeautifulSoup(page, 'lxml')
         data = soup.find_all(element)
@@ -41,3 +47,4 @@ def crawler(base_url, element="tr", keyword=None):
                     url_list.append(url + uDom)
                 except:
                     pass
+
