@@ -15,7 +15,7 @@ crawled_list = []
 
 
 def create_dirs(url_name):
-    ind = url.find(".") + 1
+    ind = url_name.find(".") + 1
     url_name = url_name[ind:]
     if not os.path.exists(url_name):
         print('Creating ' + url_name)
@@ -35,6 +35,8 @@ def crawler(base_url, element="body", keyword=None):
         
         crawled_list.append(url)
         url_list.remove(url)
+
+        create_dirs(url)
         
         page = requests.get(url).text
         soup = BeautifulSoup(page, 'lxml')
