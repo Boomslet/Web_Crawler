@@ -1,6 +1,5 @@
 """
 Web crawler (WIP)
-
 Author: Mark Boon
 Date: 24/07/2017
 Version: -
@@ -14,7 +13,10 @@ from bs4 import BeautifulSoup, SoupStrainer
 url_list = []
 crawled_list = []
 
+
 def create_dirs(url_name):
+    ind = url.find(".") + 1
+    url_name = url_name[ind:]
     if not os.path.exists(url_name):
         print('Creating ' + url_name)
         os.makedirs(url_name)
@@ -22,10 +24,10 @@ def create_dirs(url_name):
 
 def write_file(path, data):
     with open(path, 'a') as f:
-        f.write(data)
+        f.write(soup.text)
 
 
-def crawler(base_url, element="tr", keyword=None):
+def crawler(base_url, element="body", keyword=None):
     
     url_list.append(base_url)
 
@@ -33,12 +35,12 @@ def crawler(base_url, element="tr", keyword=None):
         
         crawled_list.append(url)
         url_list.remove(url)
-
-        create_dirs(url)
         
         page = requests.get(url).text
         soup = BeautifulSoup(page, 'lxml')
         data = soup.find_all(element)
+        print(soup.text.strip())
+        write_file("dump.txt", data.text)
 
         for link in BeautifulSoup(page, 'lxml', parse_only=SoupStrainer('a', href=True)):
             for link in soup.find_all('a'):
@@ -47,4 +49,3 @@ def crawler(base_url, element="tr", keyword=None):
                     url_list.append(url + uDom)
                 except:
                     pass
-
