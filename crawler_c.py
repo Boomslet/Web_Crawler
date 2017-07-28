@@ -31,8 +31,3 @@ class Crawler:
                         
             except:        
                 pass
-
-            
-
-c = Crawler("https://www.pccasegear.com")
-c.work()
