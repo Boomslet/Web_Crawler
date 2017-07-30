@@ -1,2 +1,3 @@
 # Web_Crawler
-WIP web crawler
+A free, open-source, simple web crawler
+(Work-in-progress)
