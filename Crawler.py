@@ -1,4 +1,12 @@
 """
+A simple-to-use web crawler that collects
+website data as it crawls
+
+Makes use of:
+BeautifulSoup (pip install bs4),
+lxml          (pip install lxml),
+urllib
+
 Author: Mark Boon
 Date: 30/07/2017
 Version: 1.3.1
