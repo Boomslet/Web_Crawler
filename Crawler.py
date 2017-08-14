@@ -49,4 +49,6 @@ class Crawler:
                         self.queue.append(dom)
 
             except:
+                self.write_file("error_log.txt", str(link) + "\n")
                 pass
+
