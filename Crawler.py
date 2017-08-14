@@ -9,7 +9,7 @@ urllib
 
 Author: Mark Boon
 Date: 30/07/2017
-Version: 1.3.1
+Version: 1.3.2
 """
 
 from bs4 import BeautifulSoup
