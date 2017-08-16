@@ -9,7 +9,7 @@ urllib
 
 Author: Mark Boon
 Date: 30/07/2017
-Version: 1.3.2
+Version: 1.4
 """
 
 from bs4 import BeautifulSoup
@@ -43,7 +43,7 @@ class Crawler:
 
                 print("Successfully crawled", link)
 
-                for link in soup.find_all('a'):
+                for link in soup.find_all('a', href=True):
                     dom = urljoin(self.base_url, link['href'])
                     if dom not in set(Crawler.queue):
                         self.queue.append(dom)
