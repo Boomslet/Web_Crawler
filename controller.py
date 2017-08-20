@@ -10,9 +10,7 @@ import threading
 from Crawler import *
 
 threadCount = int(input("Select number of threads to create: "))
-
 threads = [None]*threadCount
-
 
 for i in range(threadCount):
     threads[i] = Crawler(input("Enter base URL " + str(i+1) + ": "))
@@ -20,4 +18,3 @@ for i in range(threadCount):
 for i in range(threadCount):
     load = threading.Thread(target=threads[i].work)
     load.start()
-
