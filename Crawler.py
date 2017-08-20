@@ -5,25 +5,26 @@ website data as it crawls
 Makes use of:
 BeautifulSoup (pip install bs4),
 lxml          (pip install lxml),
-urllib
 
 Author: Mark Boon
-Date: 30/07/2017
-Version: 1.4
+Date: 20/08/2017
+Version: 2.0.1
 """
 
 from bs4 import BeautifulSoup
 from urllib.parse import urljoin
 import urllib.request
+import threading
 
 
 class Crawler:
     base_url = ''
     queue = []
+    lock = threading.Semaphore(value=1)
 
     def __init__(self, base_url):
-        Crawler.base_url = base_url
-        Crawler.queue = [base_url]
+        self.base_url = base_url
+        self.queue = [base_url]
 
     @staticmethod
     def write_file(path, data):
@@ -31,24 +32,26 @@ class Crawler:
             f.write(data)
             f.close()
 
-    def work(self):
+
+    def work(self):   
         for link in self.queue:
 
             try:
                 page = urllib.request.urlopen(link)
                 soup = BeautifulSoup(page, 'lxml')
 
-                self.write_file("dump.txt", soup.text.strip("\n"))
+                self.write_file("dump.txt", soup.text)
                 self.write_file("log.txt", link + "\n")
 
+                Crawler.lock.acquire()
                 print("Successfully crawled", link)
+                Crawler.lock.release()
 
                 for link in soup.find_all('a', href=True):
                     dom = urljoin(self.base_url, link['href'])
-                    if dom not in set(Crawler.queue):
+                    if dom not in set(self.queue):
                         self.queue.append(dom)
 
             except:
                 self.write_file("error_log.txt", str(link) + "\n")
                 pass
-
