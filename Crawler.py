@@ -7,8 +7,8 @@ BeautifulSoup (pip install bs4),
 lxml          (pip install lxml),
 
 Author: Mark Boon
-Date: 20/08/2017
-Version: 2.0.1
+Date: 22/08/2017
+Version: 2.1.0
 """
 
 from bs4 import BeautifulSoup
@@ -31,22 +31,23 @@ class Crawler:
         with open(path, 'a') as f:
             f.write(data)
             f.close()
-
+            
+    def report(self, url):
+        self.lock.acquire()
+        print("Successfully crawled", url)
+        self.lock.release()
 
     def work(self):   
         for link in self.queue:
-
+            
             try:
                 page = urllib.request.urlopen(link)
                 soup = BeautifulSoup(page, 'lxml')
 
                 self.write_file("dump.txt", soup.text)
                 self.write_file("log.txt", link + "\n")
-
-                Crawler.lock.acquire()
-                print("Successfully crawled", link)
-                Crawler.lock.release()
-
+                self.report(link)
+                
                 for link in soup.find_all('a', href=True):
                     dom = urljoin(self.base_url, link['href'])
                     if dom not in set(self.queue):
