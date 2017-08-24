@@ -9,8 +9,8 @@ Version: 1.4.0
 import threading
 from crawler import *
 
+
 def crawl(threadCount):
-    
     threads = [None]*threadCount
 
     for i in range(threadCount):
@@ -18,5 +18,3 @@ def crawl(threadCount):
         currentWorker = worker(input("Enter base URL " + str(i+1) + ": "))
         load = threading.Thread(target=currentWorker.work)
         load.start()
-
-
