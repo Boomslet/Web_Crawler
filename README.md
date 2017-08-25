@@ -3,6 +3,6 @@ A scalable, open-source webcrawler that writes website data to file while crawli
 
 # Usage
 Clone the Web_Crawler repository:
-'''
+```
 $ git clone https://github.com/Boomslet/Web_Crawler
-'''
+```
