@@ -8,9 +8,9 @@ Version: 2.2.1
 """
 
 import threading
-import urllib.request
-import urllib.parse
-import bs4
+from urllib.request import urlopen
+from urllib.parse import urljoin
+from bs4 import BeautifulSoup
 
 
 class Worker:
@@ -37,15 +37,15 @@ class Worker:
         for link in self.queue:
 
             try:
-                page = urllib.request.urlopen(link)
-                soup = bs4.BeautifulSoup(page, 'lxml')
+                page = urlopen(link)
+                soup = BeautifulSoup(page, 'lxml')
 
                 self.write_file("dump.txt", soup.text)
                 self.write_file("log.txt", link + "\n")
                 self.report(link)
 
                 for upper in soup.find_all('a', href=True):
-                    dom = urllib.parse.urljoin(self.base_url, upper['href'])
+                    dom = urljoin(self.base_url, upper['href'])
                     if dom not in set(self.queue):
                         self.queue.append(dom)
 
