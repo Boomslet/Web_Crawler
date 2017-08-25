@@ -6,11 +6,11 @@ Date: 25/08/2017
 Version: 1.5.0
 """
 
-from crawler import *
+import crawler
 
 
 def crawl(thread_count):
     for i in range(thread_count):
-        current_worker = Worker(input("Enter base URL " + str(i + 1) + ": "))
+        current_worker = crawler.Worker(input("Enter base URL " + str(i + 1) + ": "))
         load = threading.Thread(target=current_worker.work)
         load.start()
