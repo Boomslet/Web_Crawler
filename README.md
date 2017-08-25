@@ -9,7 +9,12 @@ $ git clone https://github.com/Boomslet/Web_Crawler
 
 ##### 2. Run controller.py
 
+
 ##### 3. Call crawl(threadcount) with desired number of threads:
 ```Python
-crawl(2)
+>>> crawl(2)
+```
+##### 4. Enter your base URLs:
+```Python
+Enter base URL 1: https://github.com/Boomslet
 ```
