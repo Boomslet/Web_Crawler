@@ -52,4 +52,3 @@ class Worker:
             except:
                 self.write_file("error_log.txt", str(link) + "\n")
                 pass
-
