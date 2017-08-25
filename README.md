@@ -2,7 +2,7 @@
 A scalable, open-source webcrawler that writes website data to file while crawling each new webpage
 
 # Installation
-##### Clone this repository:
+##### Clone the Web_Crawler repository:
 ```
 $ git clone https://github.com/Boomslet/Web_Crawler
 ```
@@ -16,10 +16,12 @@ $ git clone https://github.com/Boomslet/Web_Crawler
 ```Python
 >>> crawl(1)
 ```
+
 ##### 3. Enter base URL(s):
 ```Python
 Enter base URL 1: https://github.com/
 ``` 
+
 ##### 4. Crawl!
 ```Python
 Successfully crawled https://github.com/
