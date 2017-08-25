@@ -17,4 +17,4 @@ def crawl(threadCount):
         currentWorker = threads[i]
         currentWorker = worker(input("Enter base URL " + str(i+1) + ": "))
         load = threading.Thread(target=currentWorker.work)
-    load.start()
+        load.start()
