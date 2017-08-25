@@ -8,7 +8,11 @@ $ git clone https://github.com/Boomslet/Web_Crawler
 ```
 
 # Usage
-##### 1. Run controller.py
+##### 1. Install required packages
+```
+$ pip install -r requirements.txt
+```
+##### 2. Run controller.py
 
 
 
