@@ -16,5 +16,6 @@ $ git clone https://github.com/Boomslet/Web_Crawler
 ```
 ##### 4. Enter your base URLs:
 ```Python
-Enter base URL 1: https://github.com/Boomslet
+Enter base URL 1: https://github.com/
+Enter base URL 2: https://github.com/Boomslet
 ```
