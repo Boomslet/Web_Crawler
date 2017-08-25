@@ -2,20 +2,30 @@
 A scalable, open-source webcrawler that writes website data to file while crawling each new webpage
 
 # Installation
-##### 1. Clone this repository:
+##### Clone this repository:
 ```
 $ git clone https://github.com/Boomslet/Web_Crawler
 ```
 
-##### 2. Run controller.py
+# Usage
+##### 1. Run controller.py
 
 
-##### 3. Call crawl(threadcount) with desired number of threads:
+
+##### 2. Call crawl(threadcount) with desired number of threads:
 ```Python
->>> crawl(2)
+>>> crawl(1)
 ```
-##### 4. Enter your base URLs:
+##### 3. Enter base URL(s):
 ```Python
 Enter base URL 1: https://github.com/
-Enter base URL 2: https://github.com/Boomslet
-```
+``` 
+##### 4. Crawl!
+```Python
+Successfully crawled https://github.com/
+Successfully crawled https://github.com/#start-of-content
+Successfully crawled https://github.com/features
+Successfully crawled https://github.com/business
+Successfully crawled https://github.com/pricing
+Successfully crawled https://github.com/dashboard
+``` 
