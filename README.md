@@ -1,5 +1,8 @@
 # Web_Crawler
-Free and open-source web crawler
+A scalable, open-source webcrawler that writes website data to file while crawling each new webpage
 
 # Usage
-crawl(threadcount) to desired number of threads
+Clone the Web_Crawler repository:
+'''
+$ git clone https://github.com/Boomslet/Web_Crawler
+'''
