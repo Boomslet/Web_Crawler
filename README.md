@@ -13,19 +13,16 @@ $ git clone https://github.com/Boomslet/Web_Crawler
 $ pip install -r requirements.txt
 ```
 ##### 2. Run controller.py
->%Run controller.py
-
-##### 3. Call crawl(threadcount) with desired number of threads:
-```Python
->>> crawl(1)
+```
+%Run controller.py
 ```
 
-##### 4. Enter base URL(s):
+##### 3. Call crawl(*urls) with desired URL(s):
 ```Python
-Enter base URL 1: https://github.com/
-``` 
+>>> crawl('https://github.com/')
+```
 
-##### 5. Crawl!
+##### 4. Crawl!
 ```Python
 Successfully crawled https://github.com/
 Successfully crawled https://github.com/#start-of-content
