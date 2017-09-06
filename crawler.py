@@ -30,9 +30,8 @@ class Worker:
             f.close()
 
     def report(self, url):
-        self.lock.acquire()
-        print("Successfully crawled", url)
-        self.lock.release()
+        with self.lock:
+            print("Successfully crawled", url)
 
     def work(self):
         for link in self.queue:
