@@ -3,8 +3,8 @@ A simple-to-use web worker that collects
 website data as it crawls
 
 Author: Mark Boon
-Date: 26/08/2017
-Version: 2.3.0
+Date: 06/09/2017
+Version: 2.3.1
 """
 
 import threading
