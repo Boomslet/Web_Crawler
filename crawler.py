@@ -45,8 +45,8 @@ class Worker:
                 self.report(link)
                 self.crawled.add(link)
 
-                for upper in soup.find_all('a', href=True):
-                    joined_link = urljoin(self.base_url, upper['href'])
+                for upper_domain in soup.find_all('a', href=True):
+                    joined_link = urljoin(self.base_url, upper_domain['href'])
                     if joined_link not in self.crawled:
                         self.queue.append(joined_link)
 
