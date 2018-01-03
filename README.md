@@ -8,7 +8,7 @@ $ git clone https://github.com/Boomslet/Web_Crawler
 ```
 
 # Usage
-##### 1. Install setup.py via the command-line
+##### 1. Install setup.py
 ```
 $ python setup.py install
 ```
