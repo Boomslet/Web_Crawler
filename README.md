@@ -2,22 +2,22 @@
 A scalable, open-source webcrawler that writes website data to file while crawling each new webpage
 
 # Installation
-##### Clone the Web_Crawler repository:
+##### Clone this repository:
 ```
 $ git clone https://github.com/Boomslet/Web_Crawler
 ```
 
 # Usage
-##### 1. Install required packages
+##### 1. Install setup.py via the command-line
 ```
-$ pip install -r requirements.txt
+$ python setup.py install
 ```
 ##### 2. Run controller.py
 ```
 %Run controller.py
 ```
 
-##### 3. Call crawl(*urls) with desired URL(s):
+##### 3. Call crawl(*urls) with your desired URL(s):
 ```Python
 >>> crawl('https://github.com/')
 ```
