@@ -51,6 +51,6 @@ class Worker:
                         self.queue.append(joined_link)
 
             except:
-                // log any failed URL crawls and continue
+                # log any failed URL crawls and continue
                 self.write_file("error_log.txt", str(link) + "\n")
                 pass
