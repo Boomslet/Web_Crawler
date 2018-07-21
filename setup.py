@@ -8,7 +8,7 @@ setup(
 
     version='2.0.0',
 
-    description='A light-weight web crawler'
+    description='A light-weight web crawler',
 
     # The project's main homepage.
     url='https://github.com/Boomslet/Web_Crawler',
